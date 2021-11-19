@@ -12,22 +12,27 @@ const UserPage = () => {
   // Using useEffect to retrieve data from an API (similar to componentDidMount in a class)
   useEffect(() => {
 
-    const getUser = async () => {
-        // Pass our param (:id) to the API call
-        const { data } = await axios(
-          `https://api.github.com/users/${id}`
-        )
-        console.log(data);    
-        // Update state
-        setUser(data)
+    const getUser = () => {
+       
+        // Make a request for a user with a given ID
+        axios.get(`https://api.github.com/users/${id}`)
+        .then((response) => {
+             // handle success
+             console.log(response.data);
+             // Update state
+             setUser(response.data);
+            })
+        .catch((error) => {
+            // handle error
+            console.log(error);
+            }); 
+        
       }
 
     // Invoke the async function
     getUser();
 
-  }, []); // Don't forget the `[]`, which will prevent useEffect from running in an infinite loop
-
-  
+  }, [id]); // Don't forget the `[]`, which will prevent useEffect from running in an infinite loop
 
   // Return a table with some data from the API.
   return (
