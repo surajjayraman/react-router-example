@@ -14,7 +14,7 @@ const Form = (props) => {
     return (
         <div>
             <h2> User Registration Form!</h2>
-            <form onSubmit={updateUser}>
+            <UserForm onSubmit={updateUser}>
                 <label>
                     Your name:
                     <input type="text" value={username} 
@@ -24,11 +24,15 @@ const Form = (props) => {
 
                 <button type="submit">Send</button>
 
-            </form>
+            </UserForm>
             
         </div>
     )
 
 }
+
+const UserForm = ({ onSubmit, children }) => (
+    <form onSubmit={onSubmit}>{children}</form>
+  );
 
 export default Form;
