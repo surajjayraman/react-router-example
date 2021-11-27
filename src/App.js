@@ -3,6 +3,7 @@ import { Route, Routes } from 'react-router-dom';
 import HomePage from './components/HomePage';
 import UserPage from './components/UserPage';
 import Form from './components/Form';
+import Navigation from './components/Navigation';
 
 function App() {
   const onSubmit = (username) => {
@@ -11,6 +12,8 @@ function App() {
 
   return (
     <div className="App">
+      <Navigation />
+
       <Routes>
         <Route exact path="/" element={<HomePage/>} />  
         <Route path="/:id" element={<UserPage />} />  
