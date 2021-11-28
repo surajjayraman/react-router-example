@@ -5,6 +5,7 @@ import UserPage from './components/UserPage';
 import Form from './components/Form';
 import Users from  './components/Users';
 import Layout from './components/Layout';
+import User from './components/User';
 
 function App() {
   const onSubmit = (username) => {
@@ -21,9 +22,11 @@ function App() {
       <Routes>
         <Route element={<Layout />}>
           <Route exact path="/" element={<HomePage/>} />  
-          <Route path="/:id" element={<UserPage />} />  
-          <Route path="/register" element={<Form onSubmit={onSubmit} />} /> 
-          <Route path="/users" element={<Users users={users} />} />  
+          <Route path=":id" element={<UserPage />} />  
+          <Route path="register" element={<Form onSubmit={onSubmit} />} /> 
+          <Route path="users" element={<Users users={users} />} >  
+            <Route path=":id" element={<User />} />
+          </Route>  
         </Route>
       </Routes>
       
