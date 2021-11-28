@@ -11,6 +11,11 @@ function App() {
     console.log(username);
   }
 
+  const users = [
+    {id: 1, fullName: "Suraj Jayraman"},
+    {id: 2, fullName: "John Doe"}
+  ];
+
   return (
     <div className="App">    
       <Routes>
@@ -18,7 +23,7 @@ function App() {
           <Route exact path="/" element={<HomePage/>} />  
           <Route path="/:id" element={<UserPage />} />  
           <Route path="/register" element={<Form onSubmit={onSubmit} />} /> 
-          <Route path="/users" element={<Users />} />  
+          <Route path="/users" element={<Users users={users} />} />  
         </Route>
       </Routes>
       
