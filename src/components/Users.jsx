@@ -8,7 +8,7 @@ const Users = (props) => {
       <ol>
           {users.map((user)=> (
               <li key={user.id}>
-                  <Link to={`/users/${user.id}`}>
+                  <Link to={user.id}>
                       {user.fullName}
                    </Link> 
               </li>
