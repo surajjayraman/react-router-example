@@ -10,8 +10,9 @@ const User = (props) => {
         <button type="button" onClick={() => onRemoveUser(id)}>
           Remove
         </button>
-  
-        <Link to="/users">Back to Users</Link>
+        <div>
+        <p><Link to="/users">Back to Users</Link></p>
+        </div>        
       </>
     );
   };
