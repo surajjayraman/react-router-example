@@ -19,6 +19,17 @@ let users = {
     }
 }
 
+// retrieve all items from the database
+// with one pseudo API request
+const getUsers = () => {
+    return new Promise((resolve, reject) => {
+        if(!users){
+            return setTimeout(() => reject(new Error("Users not found")), 250);
+        }
+        setTimeout(() => resolve(Object.values(users)), 250);
+    });
+}
+
 
 
 
