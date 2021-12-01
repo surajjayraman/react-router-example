@@ -42,6 +42,20 @@ const getUser = (id) => {
     });
 }
 
+// create a user item
+const createUser = (data) => {
+    return new Promise((resolve, reject) => {
+        if (!data.firstName || !data.lastName) {
+          reject(new Error('Not all User information provided'));
+        }
+    
+        const id = uuidv4();
+        const newUser = {id, ...data};
+        users = {...users, [id]: newUser};
+        setTimeout(() => resolve(true), 250);
+    });
+}
+
 
 
 
