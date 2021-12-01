@@ -56,6 +56,21 @@ const createUser = (data) => {
     });
 }
 
+// update a user item
+const updateUser = (id, data) =>
+  new Promise((resolve, reject) => {
+    if (!users[id]) {
+      return setTimeout(
+        () => reject(new Error('User not found')),
+        250
+      );
+    }
+
+    users[id] = { ...users[id], ...data };
+
+    return setTimeout(() => resolve(true), 250);
+  });
+
 
 
 
