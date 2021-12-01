@@ -71,6 +71,23 @@ const updateUser = (id, data) =>
     return setTimeout(() => resolve(true), 250);
   });
 
+  // delete a user item
+  const deleteUser = (id) =>
+  new Promise((resolve, reject) => {
+    const { [id]: user, ...rest } = users;
+
+    if (!user) {
+      return setTimeout(
+        () => reject(new Error('User not found')),
+        250
+      );
+    }
+
+    users = { ...rest };
+
+    return setTimeout(() => resolve(true), 250);
+  });
+
 
 
 
