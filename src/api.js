@@ -30,6 +30,18 @@ const getUsers = () => {
     });
 }
 
+// retrieve a single user
+const getUser = (id) => {
+    const user = users[id];
+    return new Promise((resolve, reject) => {
+        if(!user){
+            return setTimeout(() => reject(new Error("User not found")), 250);
+        }
+        setTimeout(() => resolve(users[id], 250));
+
+    });
+}
+
 
 
 
