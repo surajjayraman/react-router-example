@@ -88,7 +88,7 @@ const updateUser = (id, data) =>
     return setTimeout(() => resolve(true), 250);
   });
 
-
+export { getUsers, getUser, createUser, updateUser, deleteUser};
 
 
 
