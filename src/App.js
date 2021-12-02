@@ -7,7 +7,7 @@ import Users from  './components/Users';
 import Layout from './components/Layout';
 import User from './components/User';
 import { useState } from 'react';
-
+import UserData from './components/UserData'
 function App() {
   const navigate = useNavigate();
 
@@ -36,7 +36,8 @@ function App() {
           <Route path="register" element={<Form onSubmit={onSubmit} />} /> 
           <Route path="users" element={<Users users={users} />} >  
             <Route path=":id" element={<User onRemoveUser={handleRemoveUser}/>} />
-          </Route>  
+          </Route> 
+          <Route path="api" element={<UserData />} /> 
         </Route>
       </Routes>
       
