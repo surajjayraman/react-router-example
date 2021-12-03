@@ -38,6 +38,7 @@ const UserData = () => {
         .then(result => console.log(result))
         .catch (error => console.log(error));
 
+        // re-fetch mock data to update UI
         doGetUsers();
     };
   
