@@ -6,8 +6,7 @@ const UserData = () => {
     const [firstName, setFirstName] = useState('');
     const [lastName, setLastName] = useState(''); 
 
-    // fetch the mock data from api
-    useEffect(() => {
+    const doGetUsers = () => {
         getUsers()
         .then(result => { 
             console.log(result);
@@ -15,7 +14,12 @@ const UserData = () => {
         })
         .catch(error => console.log(error));
 
-    }, []);    
+    }
+
+    // fetch the mock data from api
+    useEffect(() => {
+        doGetUsers();  
+    }, []); 
 
     const handleChangeFirstName = (event) => {
         setFirstName(event.target.value);
@@ -27,12 +31,14 @@ const UserData = () => {
 
     // Add a new user to the mock database
     const handleCreate = async (event) => {
-        
+
         event.preventDefault();
     
         createUser({ firstName, lastName, isDeveloper: false })
         .then(result => console.log(result))
         .catch (error => console.log(error));
+
+        doGetUsers();
     };
   
 
